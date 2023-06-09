@@ -1,6 +1,11 @@
 @extends("layouts.plantilla")
 
-@section('content')
+
+@section('titulo')
+  <h2>productos</h2>
+@endsection
+
+@section('contenido')
 
 <a href="{{route('productos.create')}}" class="btn btn-success mb-4">CREAR</a>
 
@@ -10,14 +15,15 @@
         <th scope="col">nombre</th>
         <th scope="col">precio</th>
         <th scope="col">cantidad</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
         @foreach ($productos as $producto)
         <tr>
           <td>{{$producto->nombre}}</td>
-          <td>{{$producto->cantidad}}</td>
           <td>{{$producto->precio}}</td>
+          <td>{{$producto->cantidad}}</td>
           <td>
             <form action="{{route('productos.destroy', $producto->id)}}" method="POST">
               @csrf

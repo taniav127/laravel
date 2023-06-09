@@ -1,11 +1,11 @@
 @extends('layouts.plantilla')
 
 
-@section('title')
+@section('titulo')
     <h1>Editar Producto</h1>
 @endsection
 
-@section('content')
+@section('contenido')
 
 <form action="{{route('productos.update',$producto->id)}}" method="POST">
     @csrf

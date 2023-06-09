@@ -26,7 +26,7 @@ class SubcategoriaController extends Controller
      
     public function store(Request $request)
     {
-        subcategoria::$create([
+        subcategoria::create([
             'nombre' => $request->name,
             'categorias_id' => $request->categorias_id,
             'estado' => 1

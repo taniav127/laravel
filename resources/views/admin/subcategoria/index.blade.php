@@ -1,6 +1,12 @@
 @extends("layouts.plantilla")
 
-@section('content')
+
+
+@section('titulo')
+  <h2>subcategorias</h2>
+@endsection
+
+@section('contenido')
 
 <a href="{{route('subcategorias.create')}}" class="btn btn-success mb-4">CREAR</a>
 
@@ -8,8 +14,8 @@
     <thead>
       <tr>
         <th scope="col">nombre</th>
-        <th scope="col">precio</th>
-        <th scope="col">cantidad</th>
+        <th scope="col">descripcion</th>
+        <th scope="col">categoria</th>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +23,7 @@
         <tr>
           <td>{{$subcategoria->nombre}}</td>
           <td>{{$subcategoria->descripcion}}</td>
-          <td>{{$subcategoria->name}}</td>
+          <td>{{$subcategoria->categoria_id}}</td>
           <td>
             <form action="{{route('subcategorias.destroy', $subcategoria->id)}}" method="POST">
               @csrf

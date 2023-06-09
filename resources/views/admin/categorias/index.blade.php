@@ -1,6 +1,10 @@
 @extends("layouts.plantilla")
 
-@section('content')
+@section('titulo')
+  <h2>categorias</h2>
+@endsection
+
+@section('contenido')
 
 <a href="{{route('categorias.create')}}" class="btn btn-success mb-4">CREAR</a>
 

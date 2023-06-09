@@ -233,7 +233,12 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 
-    @yield('content')
+    <div class="content-header">
+        @yield('titulo')
+    </div>
+    <div class="container-fluid">
+        @yield('contenido')
+    </div>
     
   </div>
   <!-- /.content-wrapper -->
