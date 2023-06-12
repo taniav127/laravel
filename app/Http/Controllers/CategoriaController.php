@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 
-
 class CategoriaController extends Controller
 {
     /**
@@ -13,7 +12,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::all();
+        $categorias = Categoria::where('estado',1)->get();
         return view(('admin.categorias.index'),compact('categorias'));
     }
 
@@ -22,8 +21,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::all();
-        return view(('admin.categorias.create'),compact('categorias'));
+        return view(('admin.categorias.create'));
     }
 
     /**
@@ -32,7 +30,7 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         //
-        $categorias = new categoria();
+        $categorias = new Categoria();
         $categorias->nombre = $request->input('nombre');
         $categorias->descripcion = $request->input('descripcion');
         $categorias->estado = 1;
@@ -55,7 +53,8 @@ class CategoriaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categoria = Categoria::find($id);
+        return view(('admin.categorias.edit'),compact('categoria'));
     }
 
     /**
@@ -63,7 +62,12 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $categorias = Categoria::find($id);
+        $categorias->nombre = $request->input('nombre');
+        $categorias->descripcion = $request->input('descripcion');
+        $categorias->save();
+
+        return redirect(route('categorias.index'));
     }
 
     /**
@@ -71,6 +75,10 @@ class CategoriaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categorias = Categoria::find($id);
+        $categorias->estado = 0;
+        $categorias->save();
+
+        return $respuesta = "ok";
     }
 }
