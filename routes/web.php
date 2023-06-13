@@ -5,6 +5,7 @@ use App\http\Controllers\HomeController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\subcategoriaController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('productos',ProductoController::class)->names('productos');
 Route::resource('categorias',CategoriaController::class)->names('categorias');
 Route::resource('subcategoria',subcategoriaController::class)->names('subcategorias');
+Route::resource('usuarios',UsuarioController::class)->names('usuarios');
 

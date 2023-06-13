@@ -6,23 +6,27 @@
             <div class="col-md-6">
                 <div class="card form-group">
                     <div class="card-body form-group">
-                        <form method="POST" action="{{route('productos.update',$productos->id) }}">
+                        <form method="Post" action="{{ route('usuarios.store') }}">
                             @csrf
-                            @method('PUT')
                             <div class="table form-group">
                                 <label for="exampleInputEmail1">Nombre</label>
-                                <input type="text" class="form-control" id="exampleText" name="nombre" value="{{$productos->nombre}}">
+                                <input type="text" class="form-control" id="exampleText" name="nombre">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Precio</label>
-                                <input type="text" class="form-control" id="exampleInput" name="precio" value="{{$productos->precio}}">
+                                <label for="exampleInputPassword1">Correo</label>
+                                <input type="text" class="form-control" id="exampleInput" name="email">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Cantidad</label>
-                                <input type="text" class="form-control" id="exampleInput" name="cantidad" value="{{$productos->cantidad}}">
+                            <div class="mb-3 mt-3">
+                                <label for="" class="form-label">Estado</label>
+                                <select class="form-control" name="Estado">
+                                @foreach ($usuarios as $usuario)
+                                    <option value="{{$usuarios->id}}">{{$usuarios->nombre}}</option> 
+                                @endforeach
+                                </select>
                             </div>
-                            <button type="submit" class="btn btn-primary btn">EDITAR</button>
-                            <a href="{{route('productos.index')}}" class="btn btn-danger">CANCELAR</a>
+                            
+                            <button type="submit" class="btn btn-primary btn">AGREGAR</button>
+                            <a href="{{route('usuarios.index')}}" class="btn btn-danger">CANCELAR</a>
                         </form>
 
                     </div>

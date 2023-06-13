@@ -6,23 +6,20 @@
             <div class="col-md-6">
                 <div class="card form-group">
                     <div class="card-body form-group">
-                        <form method="POST" action="{{route('productos.update',$productos->id) }}">
+                        <form method="POST" action="{{ route('usuarios.update',$usuarios->id) }}">
                             @csrf
                             @method('PUT')
                             <div class="table form-group">
-                                <label for="exampleInputEmail1">Nombre</label>
-                                <input type="text" class="form-control" id="exampleText" name="nombre" value="{{$productos->nombre}}">
+                                <label for="exampleInputEmail1">Nombre de usuarios</label>
+                                <input type="text" class="form-control" id="exampleText" name="nombre" value="{{$usuarios->nombre}}">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Precio</label>
-                                <input type="text" class="form-control" id="exampleInput" name="precio" value="{{$productos->precio}}">
+                                <label for="exampleInputPassword1">descripcion</label>
+                                <input type="text" class="form-control" id="exampleInput" name="descripcion" value="{{$usuarios->descripcion}}">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Cantidad</label>
-                                <input type="text" class="form-control" id="exampleInput" name="cantidad" value="{{$productos->cantidad}}">
-                            </div>
+                            
                             <button type="submit" class="btn btn-primary btn">EDITAR</button>
-                            <a href="{{route('productos.index')}}" class="btn btn-danger">CANCELAR</a>
+                            <a href="{{route('subcategorias.index')}}" class="btn btn-danger">CANCELAR</a>
                         </form>
 
                     </div>
